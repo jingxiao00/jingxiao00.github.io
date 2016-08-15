@@ -3,14 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>Algorithms: Design and Analysis Part 1 -- Programming Questions (week1) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。
+题目：This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。
+题目：This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order">
+<meta property="og:updated_time" content="2016-08-14T15:55:29.849Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)">
+<meta name="twitter:description" content="这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。
+题目：This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,59 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Kaggle-start" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/15/Kaggle-start/" class="article-date">
-  <time datetime="2016-08-15T17:34:23.000Z" itemprop="datePublished">2016-08-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/15/Kaggle-start/">Kaggle start</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>作者：sensor sensor<br>链接：<a href="https://www.zhihu.com/question/23987009/answer/117061767" target="_blank" rel="external">https://www.zhihu.com/question/23987009/answer/117061767</a><br>来源：知乎<br>著作权归作者所有，转载请联系作者获得授权。</p>
-<p>##关于入门：<br>kaggle 的入门可以从101playground 开始，重要的是要开始做，万事开头难。<br>然后平时要多多看高手的文章，获奖经验。有的高手获奖者甚至会把自己的源代码放上去，你就是去仅仅跑一遍，也能学到非常多的东西。</p>
-<p>##关于kaggle的问题分类：<br>一般就是regression，classification, timeseries这几类。</p>
-<p>##kaggle的问题一般解决过程：<br>拿到数据之后，第一步就是data exploration. 这一步就是各种画图，找规律，找灵感，找可能的feature. 会R的可以shiny app做一些UI来辅助自己对数据的理解。<br>然是后选strategy, 从经典的机器学习算法中，选择自己要用的模型。一般这个大家都是用现成的包，没什么好说的。<br>如果数据量比较大的话，可能要做batch sampling,上work station.<br>通常先做一个超级简单的能跑的模型，之后就是无穷无尽的feature engineering了。。。</p>
-<p>##一些tips：<br>classification 问题的大杀器是xgboost.<br>最终大杀器是ensemble learning.<br>feature 为王.<br>细节上，script 最好用svn或者git管理，做的时间长了容易乱。<br>另外，好像recruiting competitions 更简单一些，因为没有什么奖金。</p>
-<p>##参加kaggle的好处：<br>其实就不用说了，学到很多东西，而且通常数据量比较大，所以一个比赛做下来对自己的编程能力提升很高。另外如果成绩好的话，在简历上绝对是牛逼的一笔，是一些high level job的撬门砖。</p>
-<p>##kaggle的局限性：</p>
-<ol>
-<li>kaggle把实际中的数据挖掘问题大大的简化了，给你的直接是非常好的dataset. 而实际中的问题，做机器学习是万里长征的最后一步，整个长征都是在做data cleanning…</li>
-<li>kaggle和统计关系不大，需要用到的统计知识几乎为零。想要通过做kaggle来学统计是南辕北辙的，还是老老实实去读个学位吧。</li>
-</ol>
-<p>##其他：<br>kaggle的leader board很有意思，public leader board显示的仅仅是你提交答案一部分的数据分数。不到最后一刻，不知道谁才是真正的winner， 这个过程感觉蛮刺激的。。。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirwbmn3x0000ywh585i096mm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" class="article-date">
   <time datetime="2016-08-14T15:16:56.000Z" itemprop="datePublished">2016-08-14</time>
@@ -124,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)</a>
+    <h1 class="article-title" itemprop="name">
+      Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)
     </h1>
   
 
@@ -152,55 +107,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/14/hello-world/" class="article-date">
-  <time datetime="2016-08-14T14:25:25.718Z" itemprop="datePublished">2016-08-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2016/08/15/Kaggle-start/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
+          Kaggle start
+        
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/hello-world/">Hello World</a>
-    </h1>
   
+    <a href="/2016/08/14/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirwbmn470001ywh5q53bkaus" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
