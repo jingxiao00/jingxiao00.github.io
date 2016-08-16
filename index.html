@@ -61,6 +61,42 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" class="article-date">
+  <time datetime="2016-08-16T09:27:41.000Z" itemprop="datePublished">2016-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" data-id="cirx9pubg00012sh5vjk3qdm3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Kaggle-start" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/15/Kaggle-start/" class="article-date">
@@ -98,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirwbmn3x0000ywh585i096mm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirx9pubr00032sh5phpoaxut" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
@@ -124,7 +160,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)</a>
+      <a class="article-title" href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algo Part 1 -- Programming Questions (week1)</a>
     </h1>
   
 
@@ -133,17 +169,43 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。</p>
-<p>题目：<br>This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order, with no integer repeated.</p>
+<h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order, with no integer repeated.</p>
 <p>Your task is to compute the number of inversions in the file given, where the i<sup>th</sup> row of the file indicates the ith entry of an array.</p>
 <p>Because of the large size of this array, you should implement the fast divide-and-conquer algorithm covered in the video lectures.</p>
 <p>The numeric answer for the given input file should be typed in the space below.</p>
 <p>So if your answer is 1198233847, then just type 1198233847 in the space provided without any space / commas / any other punctuation marks. You can make up to 5 attempts, and we’ll use the best one for grading.</p>
 <p>(We do not require you to submit your code, so feel free to use any programming language you want — just type the final numeric answer in the following space.)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">path = <span class="string">"D:\Gdrivewangbo\CAglo\_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt"</span></div><div class="line">pathtest = <span class="string">"D:\Gdrivewangbo\CAglo\IntegerArray.txt"</span></div><div class="line">data = []</div><div class="line"><span class="keyword">with</span> open(path) <span class="keyword">as</span> f:</div><div class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">        data.append(int(line`))</div><div class="line">        </div><div class="line"><span class="keyword">print</span> data</div><div class="line">      </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">countsort</span><span class="params">(A, B)</span>:</span></div><div class="line">    nrb = <span class="number">0</span></div><div class="line">    C = []</div><div class="line">    i=<span class="number">0</span></div><div class="line">    j=<span class="number">0</span></div><div class="line">    na = len(A)</div><div class="line">    nb = len(B)</div><div class="line">    n = na + nb</div><div class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">0</span>,n):</div><div class="line">        <span class="keyword">if</span> A[i] &lt; B[j]:</div><div class="line">            C.append(A[i])</div><div class="line">            i +=<span class="number">1</span></div><div class="line">            <span class="keyword">if</span> i == na:</div><div class="line">                C.extend(B[j:])</div><div class="line">                <span class="keyword">return</span> C, nrb</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            C.append(B[j])</div><div class="line">            j +=<span class="number">1</span></div><div class="line">            nrb+=(len(A)-i)</div><div class="line">            <span class="keyword">if</span> j == nb:</div><div class="line">                C.extend(A[i:])</div><div class="line">                <span class="keyword">return</span> C, nrb</div><div class="line">    <span class="keyword">return</span> C, nrb</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(data)</span>:</span></div><div class="line">    n = len(data)</div><div class="line">    <span class="comment">#base case</span></div><div class="line">    <span class="keyword">if</span> n==<span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> data, <span class="number">0</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="comment">#split data</span></div><div class="line">        A = data[:n/<span class="number">2</span>]</div><div class="line">        B = data[n/<span class="number">2</span>:]</div><div class="line">        A, nrbA = count(A)</div><div class="line">        B, nrbB = count(B)</div><div class="line">        C, nrbC = countsort(A, B)</div><div class="line">        <span class="keyword">return</span> C, nrbA+nrbB+nrbC</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'sortdata:'</span>,count(data)[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>作业是要求使用 “Merge Sort” 方法对给定的数列排序，并记录下颠倒元素组（inversions）的个数。对于颠倒元素组，如果在一个数组中a[i]&gt;a[j]但是i&lt;j，就可以将其定义为一个颠倒元素组。例如，在[2, 4, 1, 3, 5]中，有三组(2,1)，(4,1)和(4,3)。</p>
+<p>“Merge Sort” 方法比较简单。方法主要思想就是把一个大问题变为小问题，通过解决所有的小问题来实现大问题的解决。那么这个方法也就分为两步：</p>
+<p>大问题分解为小问题（Devide）：这一步中，要将这个数组从中间进行拆分，一直拆分到数组足够小为止，对于排序问题，最小的数组应该是仅包含两个元素的数组。<br>解决所有的小问题实现大问题的解决（Merge）：这一步中，要将刚才拆分出来的所有小问题以回溯的方式逐层解决。<br>拿一个例子来讲解一下，加入我们要排序的数组是2, 4, 1, 3, 5，按照上面的步骤：</p>
+<p>首先将大问题进行拆分，如图。</p>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting1.png" alt="merge_sorting1.png" title="">
+<p>然后从下向上依次解决小问题：<br>最下层有两个数组(2, 4)和(1)，很显然不存在颠倒元素组</p>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting2.png" alt="merge_sorting2.png" title="">
+<p>然后将最下层的两个数组(2, 4)和(1)进行合并，合并的同时进行排序。注意：在每次合并的时候，两个数组一定是已经各自排好序的，所以如果第一个数组的第 i 个元素大于第二个数组的第 k 个元素，那么第一个数组的第 i+1, i+2, i+3 … 个元素都大于第二个数组的第 k 个元素，也就是说，如果第一个数组的长度为 L，那么就有 (L-i+1) 个颠倒元素组。如图：</p>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting3.png" alt="merge_sorting3.png" title="">
+<p>类似的步骤对倒数第二层使用，就可以得到最终的结果了。</p>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting4.png" alt="merge_sorting4.png" title="">
+<p>在这个方法中需要特别注意的三点：</p>
+<ul>
+<li>在每次合并的时候，两个数组一定是已经各自排好序的，所以如果第一个数组的第 i 个元素大于第二个数组的第 k 个元素，那么第一个数组的第 i+1, i+2, i+3 … 个元素都大于第二个数组的第 k 个元素，也就是说，如果第一个数组的长度为 L，那么就有 (L-i+1) 个颠倒元素组，如图。需要注意的是，这里的 i 和 k 都是指的第 X 个元素，对于不同的编程语言，由于元素起始编号不同，那么对于第 X 个元素的引用方式也会不同，常规情况下（例如 C，C++，java 等），起始元素编号为0，所以第 i 个元素应该为 a[i-1] 而不是 a[i]，而对于 MATLAB，起始元素是1，所以第 i 个元素就是 a[i]。所以在计算颠倒元素个数的时候，要注意应该是 (L-i) 还是 (L-i+1)</li>
+</ul>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting5.png" alt="merge_sorting5.png" title="">
+<ul>
+<li>在合并的时候，可以每次都比较两个数组中的第一个元素，然后将小的那个从原数组中排出，放到存放结果的数组的最后，如图</li>
+</ul>
+<img src="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/merge_sorting6.png" alt="merge_sorting6.png" title="">
+<ul>
+<li>最后在统计颠倒元素组个数的时候，记得要将所有的颠倒元素组加起来，包括拆分和合并两个部分。</li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">countsort</span><span class="params">(first_half, second_half)</span>:</span></div><div class="line">    <span class="string">""" MergeSort the given two arrays and return the number of inversions </span></div><div class="line">    before sorting.</div><div class="line">    </div><div class="line">    Args:</div><div class="line">    -first_half (list): The first array</div><div class="line">    -second_half (list): The second array </div><div class="line">    """</div><div class="line">    nrb_invers = <span class="number">0</span></div><div class="line">    merged = []</div><div class="line">    i=<span class="number">0</span></div><div class="line">    j=<span class="number">0</span></div><div class="line">    len_first = len(first_half)</div><div class="line">    len_second = len(second_half)</div><div class="line">    len_total = len_first + len_second</div><div class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">0</span>, len_total):</div><div class="line">        <span class="keyword">if</span> first_half[i] &lt; second_half[j]:</div><div class="line">            merged.append(first_half[i])</div><div class="line">            i += <span class="number">1</span></div><div class="line">            <span class="keyword">if</span> i == len_first:</div><div class="line">                merged.extend(second_half[j:])</div><div class="line">                <span class="keyword">return</span> merged, nrb_invers</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            merged.append(second_half[j])</div><div class="line">            j += <span class="number">1</span></div><div class="line">            nrb_invers += (len(first_half) - i)</div><div class="line">            <span class="keyword">if</span> j == len_second:</div><div class="line">                merged.extend(first_half[i:])</div><div class="line">                <span class="keyword">return</span> merged, nrb_invers</div><div class="line">    <span class="keyword">return</span> merged, nrb_invers</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">count_inverse</span><span class="params">(data)</span>:</span></div><div class="line">    <span class="string">"""Sort the give data(array) and count the number of inversions in the array</span></div><div class="line">    </div><div class="line">    Args:</div><div class="line">    -data (list): a list that need to be sorted and count the inversions. </div><div class="line">    """</div><div class="line">    n = len(data)</div><div class="line">    <span class="comment">#base case</span></div><div class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> data, <span class="number">0</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="comment">#split data</span></div><div class="line">        first_half = data[:n/<span class="number">2</span>]</div><div class="line">        second_half = data[n/<span class="number">2</span>:]</div><div class="line">        first_half, nrb_inverse_1st = count_inverse(first_half)</div><div class="line">        second_half, nrb_inverse_2nd = count_inverse(second_half)</div><div class="line">        merged, nrb_inverse_merged = countsort(first_half, second_half)</div><div class="line">        <span class="keyword">return</span> merged, nrb_inverse_1st + nrb_inverse_2nd + nrb_inverse_merged</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    file = <span class="string">"_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt"</span></div><div class="line">    data = []</div><div class="line">    <span class="keyword">with</span> open(file) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            data.append(int(line))</div><div class="line"></div><div class="line">    <span class="keyword">print</span> <span class="string">'Number of inversions is:'</span>,count_inverse(data)[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<p>代码可以到<a href="https://github.com/jingxiao00/Aglo_study" target="_blank" rel="external">这里</a>下载.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] <a href="http://pikipity.github.io/blog/cousera-algorithm-week1.html" target="_blank" rel="external">http://pikipity.github.io/blog/cousera-algorithm-week1.html</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="cirwbmn4i0003ywh51exhoey9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="cirx9puaz00002sh5t2g233jp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
@@ -190,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirwbmn470001ywh5q53bkaus" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirx9pubt00042sh5ek3vhcrq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -244,11 +306,15 @@
       <ul>
         
           <li>
+            <a href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/15/Kaggle-start/">Kaggle start</a>
           </li>
         
           <li>
-            <a href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algorithms: Design and Analysis Part 1 -- Programming Questions (week1)</a>
+            <a href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algo Part 1 -- Programming Questions (week1)</a>
           </li>
         
           <li>
