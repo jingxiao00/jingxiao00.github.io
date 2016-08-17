@@ -65,6 +65,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/" class="article-date">
+  <time datetime="2016-08-17T10:25:04.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/">Algo Part 1 -- Programming Questions (week3)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这里主要记录下来在 “Algo: Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。</p>
+<h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>The file contains the adjacency list representation of a simple undirected graph. There are 200 vertices labeled 1 to 200. The first column in the file represents the vertex label, and the particular row (other entries except the first column) tells all the vertices that the vertex is adjacent to. So for example, the 6th row looks like : “6    155    56    52    120    ……”. This just means that the vertex with label 6 is adjacent to (i.e., shares an edge with) the vertices with labels 155,56,52,120,……,etc</p>
+<p>Your task is to code up and run the randomized contraction algorithm for the min cut problem and use it on the above graph to compute the min cut. (HINT: Note that you’ll have to figure out an implementation of edge contractions. Initially, you might want to do this naively, creating a new graph from the old every time there’s an edge contraction. But you should also think about more efficient implementations.) (WARNING: As per the video lectures, please make sure to run the algorithm many times with different random seeds, and remember the smallest cut that you ever find.) Write your numeric answer in the space provided. So e.g., if your answer is 5, just type 5 in the space provided.</p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>第三周，作业要求使用 “randomized contraction algorithm” 来解决 “min cut” 问题。当我们将图上所有的点划分为两大类的时候，如果一个边的两个端点分别属于两个大类，这一个边被我们称为 “cut”。”min cut” 问题就是找到一种分类方法，使得 “cut” 的数量最少。我们使用 “Karger’s Min Cut Algorithm” （也就是题目要求使用的方法）算法。</p>
+<p>这个 “Karger’s Min Cut Algorithm” 非常简单，基本分为以下步骤：</p>
+<p>随机选择一个边；<br>将选定的边的两个端点合并；<br>重复步骤1、2，直到只剩两个点，此两点之间的边就是 cut；<br>重复步骤1、2、3，直到找到 min cut。<br>以下图为例，如果要找到其 min cut，需要进行以下步骤：</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut1.png" alt="mincut1.png" title="">
+<p>随机选择一个边，例如 b-f，将 b 和 f 合并，得到下图。注意：当两个点合并之后，只有这两个点之间的边消失，其他边依然存在，比如 a-bf 和 e-bf 都是两个边。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut2.png" alt="mincut2.png" title="">
+<p>再随机选择一个边，例如 g-h ，将 g 和 h 合并，得到下图。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut3.png" alt="mincut3.png" title="">
+<p>再随机选择一个边，例如 d-g，合并 d 和 g，由于 g 已经与 h 合并，所以得到下图。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut4.png" alt="mincut4.png" title="">
+<p>再随机选择一个边，例如 a-e，合并 a 和 e，得到下图。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut5.png" alt="mincut5.png" title="">
+<p>随机选择一个边，例如 a-b，合并 a 和 b，得到下图。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut6.png" alt="mincut6.png" title="">
+<p>随机选择一个边，例如 c-d，合并 c-d，得到下图。</p>
+<img src="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/mincut7.png" alt="mincut7.png" title="">
+<p>以上是一个循环，cut 数量为2。由于每次都是随机选择边，所以无法保证一次就得到最少的 cut 数量，所以要将以上的步骤循环多次，随着次数的增多，就可以找到 min cut 了。</p>
+<h3 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> random</div><div class="line"><span class="keyword">import</span> copy</div><div class="line"><span class="keyword">import</span> time</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">replace</span><span class="params">(ls, X, Y)</span>:</span></div><div class="line">    <span class="string">"""replace all X into Y in the give list"""</span></div><div class="line">    <span class="keyword">for</span> i,v <span class="keyword">in</span> enumerate(ls):</div><div class="line">        <span class="keyword">if</span> v == X:</div><div class="line">            ls.pop(i)</div><div class="line">            ls.insert(i, Y)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">WeightedPick</span><span class="params">(weight, data)</span>:</span></div><div class="line">    <span class="string">"""Randomly Pick a edge in the graph </span></div><div class="line">    </div><div class="line">    To randomly pick a edge in the graph, we need to firstly pick a vertex </div><div class="line">    by its weight(number of edge that connnected), then randomly pick another</div><div class="line">    vertex that connected to it. </div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - weight (dict): with key a vertex, value is its weight</div><div class="line">    - data (dict): with key a vertex, value is the list of vertex it connected </div><div class="line">    """</div><div class="line">    r = random.uniform(<span class="number">0</span>, sum(weight.itervalues()))</div><div class="line">    s = <span class="number">0.0</span></div><div class="line">    <span class="keyword">for</span> k, w <span class="keyword">in</span> weight.iteritems():</div><div class="line">        s += w</div><div class="line">        <span class="keyword">if</span> r &lt; s: </div><div class="line">            <span class="keyword">return</span> k, random.choice(data[k])</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">removeall</span><span class="params">(ls, element)</span>:</span></div><div class="line">    <span class="string">"""return a ls with all pointed elements removed."""</span></div><div class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i <span class="keyword">in</span> ls <span class="keyword">if</span> i != element]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">contraction</span><span class="params">(weight, data, k, v)</span>:</span></div><div class="line">    <span class="string">"""Inside the graph, contract v to k, replace all v to k.</span></div><div class="line">    The contraction of v to k in 4 steps:</div><div class="line">    1. remove all v in data[k]</div><div class="line">    2. remove all k in data[v]</div><div class="line">    3. extend data[k] with data[v]</div><div class="line">    4. in all the vertex that were connected to v, replace v to k </div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - weight (dict): with key a vertex, value is its weight</div><div class="line">    - data (dict): with key a vertex, value is the list of vertex it connected</div><div class="line">    - k (int): vertex of the edge that picked for contraction</div><div class="line">    - v (int): vortex of the edge that will be contracted by k</div><div class="line">    """</div><div class="line">    data[k] = removeall(data[k], v)</div><div class="line">    data[v] = removeall(data[v], k)</div><div class="line">    data[k].extend(data[v])</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data[v]:</div><div class="line">        replace(data[i], v, k)</div><div class="line"></div><div class="line">    weight[k] = len(data[k])</div><div class="line">    data.pop(v)</div><div class="line">    weight.pop(v)</div><div class="line">    <span class="keyword">return</span> weight, data</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">mincut</span><span class="params">(data, weight)</span>:</span>    </div><div class="line">    <span class="string">'''return the mincut of the given graph</span></div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - weight (dict): with key a vertex, value is its weight.</div><div class="line">    - data (dict): with key a vertex, value is the list of vertex it connected.</div><div class="line">    '''</div><div class="line">    <span class="keyword">while</span>(<span class="keyword">True</span>):</div><div class="line">        k, v = WeightedPick(weight, data)<span class="comment"># randomly pick a edge</span></div><div class="line">        weight, data = contraction(weight, data, k, v)<span class="comment"># contraction this edge</span></div><div class="line">        <span class="comment">#until left only two points</span></div><div class="line">        <span class="keyword">if</span> len(data) == <span class="number">2</span>:</div><div class="line">            <span class="keyword">break</span></div><div class="line">    <span class="keyword">return</span> weight[k]</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    file = <span class="string">"_f370cd8b4d3482c940e4a57f489a200b_kargerMinCut.txt"</span></div><div class="line">    data1 = &#123;&#125;</div><div class="line">    weight1 = &#123;&#125;</div><div class="line">    <span class="keyword">with</span> open(file) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            temp = line.split(<span class="string">'\t'</span>)[:<span class="number">-1</span>]</div><div class="line">            data1[int(temp[<span class="number">0</span>])] = [int(i) <span class="keyword">for</span> i <span class="keyword">in</span> temp[<span class="number">1</span>:]]</div><div class="line">            weight1[ int(temp[<span class="number">0</span>]) ]= len( data1[int( temp[<span class="number">0</span>] )] )</div><div class="line">    </div><div class="line">    start = time.time()</div><div class="line">    mincut_nr = <span class="number">1000</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">200</span>):</div><div class="line">        <span class="keyword">if</span> i%<span class="number">10</span> == <span class="number">0</span>:</div><div class="line">            <span class="keyword">print</span> <span class="string">"right now in loop:"</span>, i</div><div class="line">            <span class="keyword">print</span> <span class="string">"current mincut:"</span>, mincut_nr</div><div class="line">        d = copy.deepcopy(data1)</div><div class="line">        w = copy.deepcopy(weight1)</div><div class="line">        temp = mincut(d, w)</div><div class="line">        <span class="keyword">if</span> temp &lt; mincut_nr:</div><div class="line">            mincut_nr = temp</div><div class="line">            <span class="keyword">print</span> <span class="string">"smaller mincut found:"</span>, mincut_nr</div></pre></td></tr></table></figure>
+<p>代码可以到<a href="https://github.com/jingxiao00/Aglo_study" target="_blank" rel="external">这里</a>下载.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] <a href="http://pikipity.github.io/blog/cousera-algorithm-week3.html" target="_blank" rel="external">http://pikipity.github.io/blog/cousera-algorithm-week3.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/" data-id="cirywtgrn0000qkh5uyf4uuzt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Algorithms-Design_and-Analysis-Part-1-week1-week2-summary" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/08/17/Algorithms-Design_and-Analysis-Part-1-week1-week2-summary/" class="article-date">
@@ -99,7 +160,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/17/Algorithms-Design_and-Analysis-Part-1-week1-week2-summary/" data-id="ciryowvu90004ssh5e3dde201" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/17/Algorithms-Design_and-Analysis-Part-1-week1-week2-summary/" data-id="cirywtgss0006qkh56fsorvq1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
@@ -182,10 +243,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" data-id="ciryowvsy0000ssh5dczvljbq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" data-id="cirywtgsf0003qkh5x87dr1f2" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aglo/">Aglo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
 
     </footer>
   </div>
@@ -231,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="ciryowvu00003ssh52v821zke" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirywtgsn0004qkh5ac65m3rn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
@@ -302,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="ciryowvtg0001ssh5ar4ck5aa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="cirywtgry0001qkh5921f2mc6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
@@ -349,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="ciryowvui0006ssh5bcn0zxqg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirywtguc000eqkh522umip9x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -371,7 +432,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aglo/">Aglo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/">Algo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/">Algo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
     </div>
   </div>
 
@@ -381,7 +442,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Aglo/" style="font-size: 10px;">Aglo</a> <a href="/tags/Algo/" style="font-size: 20px;">Algo</a> <a href="/tags/kaggle/" style="font-size: 10px;">kaggle</a>
+      <a href="/tags/Algo/" style="font-size: 20px;">Algo</a> <a href="/tags/kaggle/" style="font-size: 10px;">kaggle</a>
     </div>
   </div>
 
@@ -403,6 +464,10 @@
       <ul>
         
           <li>
+            <a href="/2016/08/17/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week3/">Algo Part 1 -- Programming Questions (week3)</a>
+          </li>
+        
+          <li>
             <a href="/2016/08/17/Algorithms-Design_and-Analysis-Part-1-week1-week2-summary/">Algo Part 1 -- week1 &amp; week2 summary</a>
           </li>
         
@@ -416,10 +481,6 @@
         
           <li>
             <a href="/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/">Algo Part 1 -- Programming Questions (week1)</a>
-          </li>
-        
-          <li>
-            <a href="/2016/08/14/hello-world/">Hello World</a>
           </li>
         
       </ul>
