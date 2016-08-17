@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algo Part 1 -- Programming Questions (week1)</a>
+      <a class="article-title" href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algo Part 1 -- Programming Questions (week2)</a>
     </h1>
   
 
@@ -87,22 +87,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。</p>
-<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>In this programming problem and the next you’ll code up the clustering algorithm from lecture for computing a max-spacing k-clustering.</p>
-<p>Download the text file below.</p>
-<p>clustering1.txt<br>This file describes a distance function (equivalently, a complete graph with edge costs). It has the following format:</p>
-<p>[number_of_nodes]</p>
-<p>[edge 1 node 1] [edge 1 node 2] [edge 1 cost]</p>
-<p>[edge 2 node 1] [edge 2 node 2] [edge 2 cost]</p>
-<p>…</p>
-<p>There is one edge (i,j) for each choice of 1≤i&lt;j≤n, where n is the number of nodes.</p>
-<p>For example, the third line of the file is “1 3 5250”, indicating that the distance between nodes 1 and 3 (equivalently, the cost of the edge (1,3)) is 5250. You can assume that distances are positive, but you should NOT assume that they are distinct.</p>
-<p>Your task in this problem is to run the clustering algorithm from lecture on this data set, where the target number k of clusters is set to 4. What is the maximum spacing of a 4-clustering?</p>
+        <p>这里主要记录下来在 “Algo Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我用的是 Python。</p>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><h3 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h3><p>The file contains all of the integers between 1 and 10,000 (inclusive, with no repeats) in unsorted order. The integer in the i<sup>th</sup> row of the file gives you the i<sup>th</sup> entry of an input array.</p>
+<p>Your task is to compute the total number of comparisons used to sort the given input file by QuickSort. As you know, the number of comparisons depends on which elements are chosen as pivots, so we’ll ask you to explore three different pivoting rules.</p>
+<p>You should not count comparisons one-by-one. Rather, when there is a recursive call on a subarray of length m, you should simply add m−1 to your running total of comparisons. (This is because the pivot element is compared to each of the other m−1 elements in the subarray in this recursive call.)</p>
+<p>WARNING: The Partition subroutine can be implemented in several different ways, and different implementations can give you differing numbers of comparisons. For this problem, you should implement the Partition subroutine exactly as it is described in the video lectures (otherwise you might get the wrong answer).</p>
+<p>DIRECTIONS FOR THIS PROBLEM:</p>
+<p>For the first part of the programming assignment, you should always use the first element of the array as the pivot element.</p>
+<p>HOW TO GIVE US YOUR ANSWER:</p>
+<p>Type the numeric answer in the space provided.</p>
+<p>So if your answer is 1198233847, then just type 1198233847 in the space provided without any space / commas / other punctuation marks. You have 5 attempts to get the correct answer.</p>
+<h3 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h3><p>Compute the number of comparisons (as in Problem 1), always using the final element of the given array as the pivot element. Again, be sure to implement the Partition subroutine exactly as it is described in the video lectures.</p>
+<p>Recall from the lectures that, just before the main Partition subroutine, you should exchange the pivot element (i.e., the last element) with the first element.</p>
+<h3 id="Part-3"><a href="#Part-3" class="headerlink" title="Part 3"></a>Part 3</h3><p>Compute the number of comparisons (as in Problem 1), using the “median-of-three” pivot rule. [The primary motivation behind this rule is to do a little bit of extra work to get much better performance on input arrays that are nearly sorted or reverse sorted.] In more detail, you should choose the pivot as follows. Consider the first, middle, and final elements of the given array. (If the array has odd length it should be clear what the “middle” element is; for an array with even length 2k, use the kth element as the “middle” element. So for the array 4 5 6 7, the “middle” element is the second one —- 5 and not 6!) Identify which of these three elements is the median (i.e., the one whose value is in between the other two), and use this as your pivot. As discussed in the first and second parts of this programming assignment, be sure to implement Partition exactly as described in the video lectures (including exchanging the pivot element with the first element just before the main Partition subroutine).</p>
+<p>EXAMPLE: For the input array 8 2 4 5 7 1 you would consider the first (8), middle (4), and last (1) elements; since 4 is the median of the set {1,4,8}, you would use 4 as your pivot element.</p>
+<p>SUBTLE POINT: A careful analysis would keep track of the comparisons made in identifying the median of the three candidate elements. You should NOT do this. That is, as in the previous two problems, you should simply add m−1 to your running total of comparisons every time you recurse on a subarray with length m.</p>
+<h3 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h3><p>第二周，作业要求使用 “QuickSort” 方法对给定的数列排序，并记录“比较”的次数。这次作业的难点并不是对于 “QuickSort” 的实现，而是作业要求给出“比较”的次数。由于 “QuickSort” 虽然主思路一样但是实现方法千差万别，不同的实现方法会导致统计出来的“比较”的次数不同。所以必须严格按照老师上课讲的方法实现 “QuickSort” 才能得到正确答案。所以是否认真看老师的 lecture video 并能明白老师讲的细节成为这次作业的难点。由于 “QuickSort” 根据选定的 “Pivot” 不同可以分为三种，所以这一次的作业分为三个小问，每一个小问实现一种 “QuickSort”，通过“比较”次数的不同就会发现选择哪种 “Pivot” 比较好了。</p>
+<p>“QuickSort” 的基本思想和 week 1 中使用的 “Merge Sort” 基本一样，也是将大问题分解为小问题，但是不再是从数组的中间进行数组的拆分，而是通过确定 “Pivot” 元素在排序之后的数组中的位置，并以此位置为基础进行拆分。所以在进行拆分的同时进行了排序，所以也就不需要合并（Merge）的步骤了。基本步骤如下：</p>
+<ul>
+<li><p>选择一个元素作为 “Pivot”。<br>将数组中的其他元素与 “Pivot” 比较大小从而将原数组拆分为两个数组：比 “Pivot” 小的数组与比 “Pivot” 大的数组。确定 “Pivot” 元素的位置从而完成对 “Pivot” 元素的排序。<br>分别对拆分出来的两个数组重复步骤1和步骤2，直到全部元素排序完成。<br>上述步骤中需要注意两点：</p>
+</li>
+<li><p>根据选定 “Pivot” 不同，排序步骤会发生不同，这也就是为什么这一次作业会出现三个小问。<br>对于拆分的过程不同，拆分出来的两个数组也会不同，这会导致后续步骤中 “Pivot” 的不同，从而导致排序步骤的不同，这也就是为什么要严格按照老师 lecture video 中讲的方法来进行拆分，否则答案会不对。</p>
+</li>
+</ul>
+<p>接下来，对于三个小问（也就是三种 “Pivot” 选择方式衍生出来三种 “QuickSort”）分别如何实现来进行讲解。</p>
+<h4 id="第一个元素作为-“Pivot”"><a href="#第一个元素作为-“Pivot”" class="headerlink" title="第一个元素作为 “Pivot”"></a>第一个元素作为 “Pivot”</h4><p>第一种 “QuickSort” 是将等待排序的数组的第一个元素作为 “Pivot” 来进行排序。在排序中，我们需要两个位置标记 i 和 j，整个等待排序的数列如下图所示，i 标记的是在比 “Pivot” 小的元素的数组中最后一个元素的位置，j 标记的是还没有和 “Pivot” 比较的元素的数组中第一个元素的位置。</p>
+<img src="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/QuickSort1.png" alt="QuickSort1.png" title="">
+<p>整个排序过程如下：</p>
+<ul>
+<li>选择等待排序的数组的第一个元素作为 “Pivot”，初始化 i 和 j，i指向第一个元素的位置，j 指向第二个元素的位置。</li>
+<li>对 j 指向的元素和 “Pivot” 进行大小比较。如果 j 指向的元素小于 “Pivot”，那么就将 j 指向的元素与 i+1 指向的元素进行交换，然后 i 变为 i+1，否则不做任何操作。最后，j 变为 j+1。</li>
+<li>重复步骤2，直到 j 指向的位置超出数组范围。得到的数组如下图所示。</li>
+</ul>
+<img src="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/QuickSort2.png" alt="QuickSort2.png" title="">
+<ul>
+<li>将 i 指向的元素与 “Pivot” 交换，结束 “Pivot” 元素的排序。得到的数组如下图所示。</li>
+</ul>
+<img src="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/QuickSort3.png" alt="QuickSort3.png" title="">
+<ul>
+<li>将比 “Pivot”小的元素组成的数组和比 “Pivot” 大的元素组成的数组分别作为等待排序的数组，重复步骤1～5，直到所有元素排序结束。</li>
+</ul>
+<h4 id="最后一个元素作为-“Pivot”"><a href="#最后一个元素作为-“Pivot”" class="headerlink" title="最后一个元素作为 “Pivot”"></a>最后一个元素作为 “Pivot”</h4><p>这种 “QuickSort”，只需要在排序前，将最后一个元素和第一个元素交换，就完全可以当作第一种一样进行操作。同样要注意，必须是“交换”，否则无法得到正确的“比较”次数。</p>
+<h4 id="中间元素作为-“Pivot”"><a href="#中间元素作为-“Pivot”" class="headerlink" title="中间元素作为 “Pivot”"></a>中间元素作为 “Pivot”</h4><p>这里的“中间”元素并不是指地是数列中间的元素，而是将数列第一个元素、数列最后一个元素和数列中间的元素进行大小比较，排在中间的元素作为 “Pivot”。这一种同样可以等效为第一种，只是在排序前先要进行比较，然后把选定的元素和数列第一个元素进行交换就可以了。同样要注意，必须是“交换”。</p>
+<p>Python 代码如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort1</span><span class="params">(Array, left, right, count)</span>:</span></div><div class="line">    <span class="string">"""This function do quicksort on array with the first element as pivot.</span></div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - Array (list): The array that need to be sorted</div><div class="line">    - left (int): The index of the leftmost element of the array</div><div class="line">    - right (int): This index of the rightmost element of the array</div><div class="line">    """  </div><div class="line">    array_len = right - left + <span class="number">1</span></div><div class="line">    </div><div class="line">    <span class="comment">#Base case</span></div><div class="line">    <span class="keyword">if</span> left &gt; right: <span class="comment">#base case, when array has no element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">elif</span> array_len == <span class="number">1</span>: <span class="comment">#base case, when array has only one element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        count += (array_len - <span class="number">1</span>)</div><div class="line">        pivot = Array[left]<span class="comment">#select the first element as the privot</span></div><div class="line">        i = left + <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(left+<span class="number">1</span>, right+<span class="number">1</span>):</div><div class="line">            <span class="keyword">if</span> Array[j] &lt; pivot:</div><div class="line">                <span class="comment">#swap A[i] and A[j]</span></div><div class="line">                Array[i], Array[j] = Array[j], Array[i]</div><div class="line">                i += <span class="number">1</span></div><div class="line">        <span class="comment">#swap A[l] and A[i-1]</span></div><div class="line">        Array[left], Array[i<span class="number">-1</span>] = Array[i<span class="number">-1</span>], Array[left]</div><div class="line">        </div><div class="line">        count = quicksort1(Array, left, i<span class="number">-2</span>, count)</div><div class="line">        count = quicksort1(Array, i, right, count)</div><div class="line">    <span class="keyword">return</span> count</div><div class="line"><span class="comment">##############################################################################</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort2</span><span class="params">(Array, left, right, count)</span>:</span></div><div class="line">    <span class="string">"""This function do quicksort on array with the last element as pivot.</span></div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - Array (list): The array that need to be sorted</div><div class="line">    - left (int): The index of the leftmost element of the array</div><div class="line">    - right (int): This index of the rightmost element of the array</div><div class="line">    """  </div><div class="line">    array_len = right - left + <span class="number">1</span></div><div class="line">    </div><div class="line">    <span class="comment">#Base case</span></div><div class="line">    <span class="keyword">if</span> left &gt; right: <span class="comment">#base case, when array has no element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">elif</span> array_len == <span class="number">1</span>: <span class="comment">#base case, when array has only one element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        count += (array_len<span class="number">-1</span>)</div><div class="line">        pivot = Array[right]</div><div class="line">        <span class="comment">#exchange the pviot and the first element</span></div><div class="line">        Array[left], Array[right] = Array[right], Array[left]</div><div class="line">        i = left + <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(left+<span class="number">1</span>, right+<span class="number">1</span>):</div><div class="line">            <span class="keyword">if</span> Array[j] &lt; pivot:</div><div class="line">                <span class="comment">#swap A[j] and A[j]</span></div><div class="line">                Array[i], Array[j] = Array[j], Array[i]</div><div class="line">                i += <span class="number">1</span></div><div class="line">        <span class="comment">#swap A[left] and A[i-1]</span></div><div class="line">        Array[left], Array[i<span class="number">-1</span>] = Array[i<span class="number">-1</span>], Array[left]</div><div class="line">        count = quicksort2(Array, left, i<span class="number">-2</span>, count)</div><div class="line">        count = quicksort2(Array, i, right, count)</div><div class="line">    <span class="keyword">return</span> count</div><div class="line"></div><div class="line"><span class="comment">#################################################################################</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">middle</span><span class="params">(x, y, z)</span>:</span></div><div class="line">    <span class="string">"""Return the middle of the three give element"""</span></div><div class="line">    <span class="keyword">return</span> sorted([x, y, z])[<span class="number">1</span>]</div><div class="line">    </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">quicksort3</span><span class="params">(Array, left, right, count)</span>:</span></div><div class="line">    <span class="string">"""This function do quicksort on array with the middle element as pivot.</span></div><div class="line">    </div><div class="line">    Args:</div><div class="line">    - Array (list): The array that need to be sorted</div><div class="line">    - left (int): The index of the leftmost element of the array</div><div class="line">    - right (int): This index of the rightmost element of the array</div><div class="line">    """  </div><div class="line">    array_len = right - left + <span class="number">1</span></div><div class="line">    <span class="comment">#base case</span></div><div class="line">    <span class="keyword">if</span> left &gt; right: <span class="comment">#base case, when array has no element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">elif</span> array_len == <span class="number">1</span>: <span class="comment">#base case, when array has only one element</span></div><div class="line">        <span class="keyword">pass</span></div><div class="line">    <span class="keyword">elif</span> array_len == <span class="number">2</span>:</div><div class="line">        count += <span class="number">1</span></div><div class="line">        <span class="keyword">if</span> Array[left] &gt; Array[right]:</div><div class="line">            Array[left], Array[right] =  Array[right], Array[left]</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">pass</span></div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        count += (array_len<span class="number">-1</span>)</div><div class="line">        pivot = middle(Array[left], Array[right], Array[left+array_len/<span class="number">2</span><span class="number">-1</span>+array_len%<span class="number">2</span>])</div><div class="line">        this = Array.index(pivot)</div><div class="line">        Array[left], Array[this] = Array[this], Array[left]</div><div class="line">        i = left + <span class="number">1</span></div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(left+<span class="number">1</span>, right+<span class="number">1</span>):</div><div class="line">            <span class="keyword">if</span> Array[j] &lt; pivot:</div><div class="line">                <span class="comment">#swap A[j] and A[j]</span></div><div class="line">                Array[i], Array[j] = Array[j], Array[i]</div><div class="line">                i += <span class="number">1</span></div><div class="line">        <span class="comment">#swap A[left] and A[i-1]</span></div><div class="line">        Array[left], Array[i<span class="number">-1</span>] = Array[i<span class="number">-1</span>], Array[left]</div><div class="line">        count = quicksort3(Array, left, i<span class="number">-2</span>, count)</div><div class="line">        count = quicksort3(Array, i, right, count)</div><div class="line">        </div><div class="line">    <span class="keyword">return</span> count</div><div class="line"></div><div class="line"><span class="comment">#################################################################################</span></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</div><div class="line">    path = <span class="string">"D:\Gdrivewangbo\CAglo\_32387ba40b36359a38625cbb397eee65_QuickSort.txt"</span></div><div class="line">    pathtest = <span class="string">"D:\Gdrivewangbo\CAglo\QuickSort.txt"</span></div><div class="line">    data = []</div><div class="line">    <span class="keyword">with</span> open(path) <span class="keyword">as</span> f:</div><div class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</div><div class="line">            data.append(int(line))</div><div class="line"></div><div class="line">    array = data[:]</div><div class="line">    count = quicksort1(array, <span class="number">0</span>, len(array)<span class="number">-1</span>, count = <span class="number">0</span>)</div><div class="line">    <span class="keyword">print</span> <span class="string">"Number of comparion for quicksort1:"</span>, count</div><div class="line">    </div><div class="line">    array = data[:]</div><div class="line">    count = quicksort2(array, <span class="number">0</span>, len(array)<span class="number">-1</span>, count = <span class="number">0</span>)</div><div class="line">    <span class="keyword">print</span> <span class="string">"Number of comparion for quicksort2:"</span>, count </div><div class="line">     </div><div class="line">    array = data[:]</div><div class="line">    count = quicksort3(array, <span class="number">0</span>, len(array)<span class="number">-1</span>, count = <span class="number">0</span>)</div><div class="line">    <span class="keyword">print</span> <span class="string">"Number of comparion for quicksort3:"</span>, count</div></pre></td></tr></table></figure></p>
+<p>代码可以到<a href="https://github.com/jingxiao00/Aglo_study" target="_blank" rel="external">这里</a>下载.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1] <a href="http://pikipity.github.io/blog/cousera-algorithm-week2.html" target="_blank" rel="external">http://pikipity.github.io/blog/cousera-algorithm-week2.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" data-id="cirx9pubg00012sh5vjk3qdm3" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/" data-id="cirx9pubg00012sh5vjk3qdm3" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Aglo/">Aglo</a></li></ul>
@@ -136,8 +170,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作者：sensor sensor<br>链接：<a href="https://www.zhihu.com/question/23987009/answer/117061767" target="_blank" rel="external">https://www.zhihu.com/question/23987009/answer/117061767</a><br>来源：知乎<br>著作权归作者所有，转载请联系作者获得授权。</p>
-<h2 id="关于入门："><a href="#关于入门：" class="headerlink" title="关于入门："></a>关于入门：</h2><p>kaggle 的入门可以从101playground 开始，重要的是要开始做，万事开头难。<br>然后平时要多多看高手的文章，获奖经验。有的高手获奖者甚至会把自己的源代码放上去，你就是去仅仅跑一遍，也能学到非常多的东西。</p>
+        <h2 id="关于入门："><a href="#关于入门：" class="headerlink" title="关于入门："></a>关于入门：</h2><p>kaggle 的入门可以从101playground 开始，重要的是要开始做，万事开头难。<br>然后平时要多多看高手的文章，获奖经验。有的高手获奖者甚至会把自己的源代码放上去，你就是去仅仅跑一遍，也能学到非常多的东西。</p>
 <h2 id="关于kaggle的问题分类："><a href="#关于kaggle的问题分类：" class="headerlink" title="关于kaggle的问题分类："></a>关于kaggle的问题分类：</h2><p>一般就是regression，classification, timeseries这几类。</p>
 <h2 id="kaggle的问题一般解决过程："><a href="#kaggle的问题一般解决过程：" class="headerlink" title="kaggle的问题一般解决过程："></a>kaggle的问题一般解决过程：</h2><p>拿到数据之后，第一步就是data exploration. 这一步就是各种画图，找规律，找灵感，找可能的feature. 会R的可以shiny app做一些UI来辅助自己对数据的理解。<br>然是后选strategy, 从经典的机器学习算法中，选择自己要用的模型。一般这个大家都是用现成的包，没什么好说的。<br>如果数据量比较大的话，可能要做batch sampling,上work station.<br>通常先做一个超级简单的能跑的模型，之后就是无穷无尽的feature engineering了。。。</p>
 <h2 id="一些tips："><a href="#一些tips：" class="headerlink" title="一些tips："></a>一些tips：</h2><p>classification 问题的大杀器是xgboost.<br>最终大杀器是ensemble learning.<br>feature 为王.<br>细节上，script 最好用svn或者git管理，做的时间长了容易乱。<br>另外，好像recruiting competitions 更简单一些，因为没有什么奖金。</p>
@@ -147,11 +180,12 @@
 <li>kaggle和统计关系不大，需要用到的统计知识几乎为零。想要通过做kaggle来学统计是南辕北辙的，还是老老实实去读个学位吧。</li>
 </ol>
 <h2 id="其他："><a href="#其他：" class="headerlink" title="其他："></a>其他：</h2><p>kaggle的leader board很有意思，public leader board显示的仅仅是你提交答案一部分的数据分数。不到最后一刻，不知道谁才是真正的winner， 这个过程感觉蛮刺激的。。。</p>
+<p>链接：<a href="https://www.zhihu.com/question/23987009/answer/117061767" target="_blank" rel="external">https://www.zhihu.com/question/23987009/answer/117061767</a><br>来源：知乎</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirx9pubr00032sh5phpoaxut" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/08/15/Kaggle-start/" data-id="cirx9pubr00032sh5phpoaxut" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
@@ -185,7 +219,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这里主要记录下来在 “Algorithms: Design and Analysis Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。</p>
+        <p>这里主要记录下来在 “Algo Part 1” 的Programming Questions 中的算法、实现和作业中的困难。我是用的是 Python。</p>
 <h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>This file contains all of the 100,000 integers between 1 and 100,000 (inclusive) in some order, with no integer repeated.</p>
 <p>Your task is to compute the number of inversions in the file given, where the i<sup>th</sup> row of the file indicates the ith entry of an array.</p>
 <p>Because of the large size of this array, you should implement the fast divide-and-conquer algorithm covered in the video lectures.</p>
@@ -222,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="cirx9puaz00002sh5t2g233jp" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/08/14/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week1/" data-id="cirx9puaz00002sh5t2g233jp" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Algo/">Algo</a></li></ul>
@@ -269,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirx9pubt00042sh5ek3vhcrq" class="article-share-link">Delen</a>
+      <a data-url="http://yoursite.com/2016/08/14/hello-world/" data-id="cirx9pubt00042sh5ek3vhcrq" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -289,7 +323,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aglo/">Aglo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algo/">Algo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/kaggle/">kaggle</a></li></ul>
     </div>
@@ -299,7 +333,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/Aglo/" style="font-size: 10px;">Aglo</a> <a href="/tags/Algo/" style="font-size: 10px;">Algo</a> <a href="/tags/kaggle/" style="font-size: 10px;">kaggle</a>
     </div>
@@ -308,7 +342,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
     </div>
@@ -318,12 +352,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algo Part 1 -- Programming Questions (week1)</a>
+            <a href="/2016/08/16/Algorithms-Design-and-Analysis-Part-1-Programming-Questions-week2/">Algo Part 1 -- Programming Questions (week2)</a>
           </li>
         
           <li>
@@ -351,7 +385,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 Doreen Xinnuo Wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
